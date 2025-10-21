@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meu Sonho</title>
   <style>
-    /* Reset e estilo básico */
     * {
       margin: 0;
       padding: 0;
@@ -15,46 +14,74 @@
 
     body {
       height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #f0f0f0;
       display: flex;
       justify-content: center;
       align-items: center;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #f0f0f0;
-      overflow: hidden;
       padding: 20px;
-      text-align: center;
+    }
+
+    .container {
+      background: rgba(0,0,0,0.6);
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 800px;
+      width: 100%;
+      height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
 
     h1 {
       font-size: 2rem;
+      text-align: center;
       margin-bottom: 20px;
       color: #ffdd59;
     }
 
     p {
       font-size: 1.2rem;
-      line-height: 1.8;
-      max-width: 800px;
-      margin: auto;
+      line-height: 1.6;
+      word-wrap: break-word;
     }
 
-    /* Efeito de digitação */
     .typed-text {
       border-right: 2px solid #ffdd59;
-      white-space: nowrap;
-      overflow: hidden;
+      white-space: pre-wrap;
       display: inline-block;
+    }
+
+    /* Scrollbar estilizada */
+    .container::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .container::-webkit-scrollbar-thumb {
+      background: #ffdd59;
+      border-radius: 4px;
+    }
+
+    .container::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.1);
+      border-radius: 4px;
     }
   </style>
 </head>
 <body>
-  <div>
-    <h1>Meu sonho</h1>
+  <div class="container">
+    <h1>Meu Sonho</h1>
     <p id="text" class="typed-text"></p>
   </div>
 
   <script>
-    const text = `Meu sonho é ser um gênio. Um exemplo é mudar o mundo, energia infinita, máquina do tempo e muitas coisas. Já faz 6 meses que larguei tudo da vida para ficar ao lado dos estudos. Tudo que eu amava eu odeio: videogame, celular, namorada, amigo, brincar etc. Eu aprendi tanta coisa nesse tempo: criei sites, aprendi dilatação do tempo de Einstein, estou tão avançado na matemática que estou no nível da faculdade, estou tentando entender o universo, ex: matéria escura. Não me chame de nerd ou inteligente e sim de louco. Lembre-se: os loucos criaram a arca e os espertos o Titanic. Hoje acredito no tempo.`;
+    const text = `Meu sonho é ser um gênio. Um exemplo é mudar o mundo, energia infinita, máquina do tempo e muitas coisas. 
+Já faz 6 meses que larguei tudo da vida para ficar ao lado dos estudos. 
+Tudo que eu amava eu odeio: videogame, celular, namorada, amigo, brincar etc. 
+Eu aprendi tanta coisa nesse tempo: criei sites, aprendi dilatação do tempo de Einstein, 
+estou tão avançado na matemática que estou no nível da faculdade, estou tentando entender o universo, ex: matéria escura. 
+Não me chame de nerd ou inteligente e sim de louco. 
+Lembre-se: os loucos criaram a arca e os espertos o Titanic. Hoje acredito no tempo.`;
 
     const textElement = document.getElementById('text');
     let index = 0;
@@ -63,7 +90,7 @@
       if(index < text.length){
         textElement.innerHTML += text.charAt(index);
         index++;
-        setTimeout(type, 30);
+        setTimeout(type, 20); // velocidade da digitação
       }
     }
 
